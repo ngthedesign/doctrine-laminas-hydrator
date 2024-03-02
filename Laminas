@@ -1,0 +1,25 @@
+enum Suit: string {
+    case Hearts = 'H';
+    case Diamonds = 'D';
+    case Clubs = 'C';
+    case Spades = 'S';
+}
+
+#[Entity]
+class Card
+{
+    /** ... */
+
+    #[Column(type: 'string', enumType: Suit::class)]
+    public Suit $suit;
+
+    public function getSuit(): Suit
+    {
+        return $this->suit;
+    }
+
+    public function setSuit(Suit $suit): void
+    {
+        $this->suit = $suit;
+    }
+}
